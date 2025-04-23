@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Rive Player</title>
-    <script src="https://unpkg.com/@rive-app/webgl@2.0.0"></script>
+    <script src="https://unpkg.com/@rive-app/webgl2@latest"></script>
     <style>
       html, body {
         margin: 0;
@@ -51,7 +51,7 @@
             canvas: canvas,
             autoplay: true,
             fit: rive.Fit.Contain,
-            stateMachines: ["State Machine 1"], // Replace with actual name
+          stateMachines: ["State Machine 1"], // Replace with actual name
             useOffscreenRenderer: true,
           });
         });
