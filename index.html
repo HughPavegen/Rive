@@ -4,9 +4,33 @@
     <meta charset="UTF-8" />
     <title>Rive Player</title>
     <script src="https://unpkg.com/@rive-app/webgl"></script>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      #rive-container {
+        position: relative;
+        width: 100%;
+        padding-top: 36.6%; /* 1365 / 500 = 2.73 */
+        overflow: hidden;
+      }
+      #riveCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    </style>
   </head>
   <body>
-    <canvas id="riveCanvas" width="500" height="500"></canvas>
+    <div id="rive-container">
+      <canvas id="riveCanvas"></canvas>
+    </div>
 
     <script>
       const canvas = document.getElementById("riveCanvas");
@@ -17,8 +41,6 @@
 
       canvas.width = width * dpr;
       canvas.height = height * dpr;
-      canvas.style.width = width + "px";
-      canvas.style.height = height + "px";
 
       fetch("pavegen_landing_page.riv")
         .then(res => res.arrayBuffer())
@@ -28,7 +50,7 @@
             canvas: canvas,
             autoplay: true,
             fit: rive.Fit.Contain,
-            stateMachines: ["State Machine 1"], // Replace with the actual name if different
+            stateMachines: ["State Machine 1"], // Replace with actual name
           });
         });
     </script>
