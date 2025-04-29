@@ -43,14 +43,15 @@
       canvas.width = width * dpr;
       canvas.height = height * dpr;
 
-      fetch("pavegen_landing_page_4_elements.riv")   
+      fetch("pavegen_landing_page_4_elements.riv")
+        .then(res => res.arrayBuffer())
         .then(buffer => {
           new rive.Rive({
             buffer,
             canvas: canvas,
             autoplay: true,
             fit: rive.Fit.Contain,
-          stateMachines: ["State Machine 1"], // Replace with actual name
+            stateMachines: ["State Machine 1"], // Replace with actual name
             useOffscreenRenderer: true,
           });
         });
